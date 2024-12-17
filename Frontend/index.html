@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Invest.io</title>
     <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
-    <!-- <style>
+     <!-- <style>
     body {
         font-family: Arial, sans-serif;
         margin: 0;
@@ -104,22 +104,18 @@
         }
     }
 </style> -->
-</body>
-<body>
     <div class="image-container">
         <img class="image" src="public/Stock market.svg" alt="image">
     </div>
     <div class="title">Find the right pick with 
         <span class="highlight">Invest.io</span>
     </div>
-
     <div class="search-container">
         <div class="search-box">
-           <img class="icon" src="public/Magnifying glass.svg" alt="icon">
-            <input type="text" placeholder="Search for a company">
+            <img class="icon" src="public/Magnifying glass.svg" alt="icon">
+            <input type="text" id="searchBox" placeholder="Search for a company" onkeypress="handleEnter(event)">
         </div>
     </div>
-
     <div class="company-list">
         <div class="list"><a href="./companies-list/TCS.html">TCS</a></div>
         <div class="list"><a href="./companies-list/Infosys.html">Infosys</a></div>
@@ -127,5 +123,25 @@
         <div class="list"><a href="./companies-list/Wipro.html">Wipro</a></div>
         <div class="list"><a href="./companies-list/Sbi.html">SBI_Life Insurance</a></div>
     </div>
+
+    <script>
+        const routes = {
+            "TCS": "./companies-list/TCS.html",
+            "Infosys": "./companies-list/Infosys.html",
+            "HDFC": "./companies-list/Hdfc.html",
+            "Wipro": "./companies-list/Wipro.html",
+            "SBI": "./companies-list/Sbi.html"
+        };
+
+        function handleEnter(event) {
+            if (event.key === "Enter") {
+                const input = document.getElementById('searchBox').value.trim();
+                if (routes[input]) {
+                    window.location.href = routes[input]; 
+                    //  alert("Company not found! Try TCS, Infosys, HDFC, Wipro, or SBI.");
+                }
+            }
+        }
+    </script>
 </body>
 </html>
