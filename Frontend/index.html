@@ -5,117 +5,118 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Invest.io</title>
     <link rel="stylesheet" href="style.css" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        .image-container {
+            padding: 20px;
+            overflow: hidden;
+        }
+        .image {
+            display: flex;
+            margin: 0 auto;
+            width: 80%;
+            max-width: 400px;
+        }
+        .title {
+            font-size: 28px;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+        .highlight {
+            color: white;
+            background-color: #6b50ff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            display: inline-block;
+        }
+        .search-container {
+            margin: 20px auto;
+            width: 80%;
+            max-width: 400px;
+        }
+        .search-box {
+            display: flex;
+            align-items: center;
+            background-color: #f1f1f1;
+            padding: 10px;
+            border-radius: 8px;
+        }
+        .search-box input {
+            flex: 1;
+            border: none;
+            outline: none;
+            font-size: 16px;
+            background: none;
+        }
+        .search-box button {
+            background-color: #6b50ff;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .search-box button:hover {
+            background-color: #5841d1;
+        }
+        .icon {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+        }
+        .company-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .list {
+            display: inline-flex;
+            background-color: #f1f1f1;
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .list:hover {
+            background-color: #6b50ff;
+            color: white;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+    </style>
 </head>
 
 <body>
-     <!-- <style>
-    body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        text-align: center;
-    }
-    .image-container {
-        padding: 20px;
-        overflow: hidden;
-    
-    }
-    .image {
-        display: flex;
-        margin: 0 auto;
-        width: 80%;
-        max-width: 400px;
-    
-    }
-    .title {
-        font-size: 28px;
-        font-weight: bold;
-        margin: 20px 0;
-    }
-    .highlight {
-        color: white;
-        background-color: #6b50ff;
-        padding: 5px 10px;
-        border-radius: 5px;
-        display: inline-block;
-        
-    }
-    .search-container {
-        margin: 20px auto;
-        width: 80%;
-        max-width: 400px;
-    }
-    .search-box {
-        display: flex;
-        align-items: center;
-        background-color: #f1f1f1;
-        padding: 10px;
-        border-radius: 8px;
-    }
-    .search-box input {
-        flex: 1;
-        border: none;
-        outline: none;
-        font-size: 16px;
-        background: none;
-    }
-    .icon {
-        width: 20px;
-        height: 20px;
-        margin-right: 10px;
-    }
-    .company-list {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 10px;
-        margin-bottom: 20px;
-    }
-    .list {
-        display: inline-flex;
-        background-color: #f1f1f1;
-        padding: 8px 12px;
-        border-radius: 8px;
-        font-size: 14px;
-        transition: background-color 0.3s, color 0.3s;
-    }
-    .list:hover {
-        background-color: #6b50ff;
-        color: white;
-    }
-    @media (max-width: 768px) {
-        .title {
-            font-size: 24px;
-        }
-        .search-container {
-            width: 90%;
-        }
-        .image {
-            width: 100%;
-        }
-    }
-    @media (max-width: 480px) {
-        .title {
-            font-size: 20px;
-        }
-        .tag {
-            font-size: 12px;
-            padding: 6px 10px;
-        }
-    }
-</style> -->
+    <!-- Header Image -->
     <div class="image-container">
         <img class="image" src="public/Stock market.svg" alt="image">
     </div>
+
+    <!-- Title -->
     <div class="title">Find the right pick with 
         <span class="highlight">Invest.io</span>
     </div>
+
+    <!-- Search Box -->
     <div class="search-container">
         <div class="search-box">
             <img class="icon" src="public/Magnifying glass.svg" alt="icon">
             <input type="text" id="searchBox" placeholder="Search for a company" onkeypress="handleEnter(event)">
+            <button onclick="searchCompany()">Search</button>
         </div>
     </div>
+
+    <!-- Company List -->
     <div class="company-list">
         <div class="list"><a href="./companies-list/TCS.html">TCS</a></div>
         <div class="list"><a href="./companies-list/Infosys.html">Infosys</a></div>
@@ -124,7 +125,9 @@
         <div class="list"><a href="./companies-list/Sbi.html">SBI_Life Insurance</a></div>
     </div>
 
+    <!-- JavaScript -->
     <script>
+        // Routes for Company Pages
         const routes = {
             "TCS": "./companies-list/TCS.html",
             "Infosys": "./companies-list/Infosys.html",
@@ -133,13 +136,25 @@
             "SBI": "./companies-list/Sbi.html"
         };
 
+        // Handle Enter Key Press
         function handleEnter(event) {
             if (event.key === "Enter") {
-                const input = document.getElementById('searchBox').value.trim();
-                if (routes[input]) {
-                    window.location.href = routes[input]; 
-                    //  alert("Company not found! Try TCS, Infosys, HDFC, Wipro, or SBI.");
-                }
+                searchCompany();
+            }
+        }
+
+        // Search Company Function
+        function searchCompany() {
+            const input = document.getElementById('searchBox').value.trim().toLowerCase();
+            const normalizedRoutes = Object.keys(routes).reduce((acc, key) => {
+                acc[key.toLowerCase()] = routes[key];
+                return acc;
+            }, {});
+
+            if (normalizedRoutes[input]) {
+                window.location.href = normalizedRoutes[input];
+            } else {
+                alert("Company not found! Try TCS, Infosys, HDFC, Wipro, or SBI.");
             }
         }
     </script>
