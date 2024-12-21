@@ -6,7 +6,45 @@
 
     
     <title>SBI Life Insurance Company Ltd share price | About SBI Life Insuran | Key Insights - Screener</title>
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+  google.charts.load('current', {'packages':['corechart']});
+  google.charts.setOnLoadCallback(drawChart);
+
+  function drawChart() {
+    var data = google.visualization.arrayToDataTable([
+      ['Quarter', 'Sales', 'Expenses'],
+      ['Sep 2021', 25636, 25364],
+      ['Dec 2021', 20672, 20272],
+      ['Mar 2022', 20671, 20941],
+      ['Jun 2022', 4806, 4516],
+      ['Sep 2022', 27717, 27292],
+      ['Dec 2022', 26817, 26483],
+      ['Mar 2023', 21296, 22197],
+      ['Jun 2023', 27895, 27471],
+      ['Sep 2023', 28805, 28392],
+      ['Dec 2023', 39033, 38681],
+      ['Mar 2024', 36255, 37043],
+      ['Jun 2024', 34654, 34060],
+      ['Sep 2024', 40302, 39696],
+    ]);
+
+    var options = {
+      title: 'Company Performance',
+      curveType: 'function',
+      legend: { position: 'bottom' }
+    };
+
+    var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+    chart.draw(data, options);
+  }
+</script>
+
+
     
+
     <style>
       .logo-invest
       {
@@ -691,8 +729,7 @@ Net Retention Ratio - 99%<sup><a href="https://www.bseindia.com/bseplus/AnnualRe
                   name="metrics"
                   value="Price to Earning-Median PE-EPS"
                   type="button">PE Ratio</button>
-        
-      
+                
         
       
         
@@ -782,7 +819,7 @@ Net Retention Ratio - 99%<sup><a href="https://www.bseindia.com/bseplus/AnnualRe
     
   </div>
 </div>
-
+<div id="curve_chart" style="width: 1200px; height: 600px"></div>
 <div class="flex no-select">
   <div class="hide-on-mobile chart-label">
     <div id="chart-label-left"></div>
@@ -810,7 +847,7 @@ Net Retention Ratio - 99%<sup><a href="https://www.bseindia.com/bseplus/AnnualRe
 
     
     <section id="analysis" class="card card-large">
-      <div class="flex flex-column-mobile flex-gap-32">
+      <div class="flex flex-column-mobile flex-gap-32"  style="height: 450px; display: grid;">
         <div class="pros" style="flex-basis: 50%;">
           <p class="title">Pros</p>
           <ul>
@@ -4656,5 +4693,6 @@ Net Retention Ratio - 99%<sup><a href="https://www.bseindia.com/bseplus/AnnualRe
 
     <!-- Service worker installer for PWA -->
     <script src="https://cdn-static.screener.in/js/pwa.933118758337.js"></script>
+    
   </body>
 </html>

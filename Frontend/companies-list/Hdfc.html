@@ -4,7 +4,42 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
-    <title>HDFC Bank Ltd share price | About HDFC Bank | Key Insights - Invest.io</title>
+    <title>HDFC Bank Ltd share price | About HDFC Bank | Key Insights - Invest.io</title>\
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+  google.charts.load('current', {'packages':['corechart']});
+  google.charts.setOnLoadCallback(drawChart);
+
+  function drawChart() {
+    var data = google.visualization.arrayToDataTable([
+      ['Quarter', 'Revenue', 'Expenses'],
+      ['Sep 2021', 33520, 14698],
+      ['Dec 2021', 34588, 14423],
+      ['Mar 2022', 35574, 15044],
+      ['Jun 2022', 37274, 15021],
+      ['Sep 2022', 40930, 15915],
+      ['Dec 2022', 45002, 16682],
+      ['Mar 2023', 47548, 17770],
+      ['Jun 2023', 51168, 18470],
+      ['Sep 2023', 75039, 45349],
+      ['Dec 2023', 78008, 50530],
+      ['Mar 2024', 79434, 62938],
+      ['Jun 2024', 81546, 49690],
+      ['Sep 2024', 83002, 52074],
+    ]);
+
+    var options = {
+      title: 'Company Performance',
+      curveType: 'function',
+      legend: { position: 'bottom' }
+    };
+
+    var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+    chart.draw(data, options);
+  }
+</script>
 
      
     </div>
@@ -483,6 +518,7 @@ The company is India's one of 3 systemically important banks with a <strong>15% 
      class="flex flex-space-between flex-wrap"
      style="margin-bottom: 16px">
   <div class="options" id="company-chart-days">
+    
     <button name="days"
             value="30"
             onclick="CompanyChart.setActive(event)"
@@ -532,10 +568,8 @@ The company is India's one of 3 systemically important banks with a <strong>15% 
                   name="metrics"
                   value="Price to Earning-Median PE-EPS"
                   type="button">PE Ratio</button>
-        
-      
-        
-      
+                 
+
         
       
         
@@ -623,7 +657,7 @@ The company is India's one of 3 systemically important banks with a <strong>15% 
     
   </div>
 </div>
-
+<div id="curve_chart" style="width: 1200px; height: 600px"></div>
 <div class="flex no-select">
   <div class="hide-on-mobile chart-label">
     <div id="chart-label-left"></div>
@@ -651,11 +685,14 @@ The company is India's one of 3 systemically important banks with a <strong>15% 
 
     
     <section id="analysis" class="card card-large">
-      <div class="flex flex-column-mobile flex-gap-32">
-        <div class="pros" style="flex-basis: 50%;">
+
+      <div class="flex flex-column-mobile flex-gap-32" style="height: 505px; display: grid;">
+        <div class="pros" style=" flex-basis: 50%;">
           <p class="title">Pros</p>
           <ul>
-            <li>Company is expected to give good quarter</li><li>Company has delivered good profit growth of 23.4% CAGR over last 5 years</li><li>Company has been maintaining a healthy dividend payout of 22.9%</li><li>Company&#x27;s median sales growth is 16.4% of last 10 years</li>
+            <li>Company is expected to give good quarter</li>
+            <li>Company has delivered good profit growth of 23.4% CAGR over last 5 years</li>
+            <li>Company has been maintaining a healthy dividend payout of 22.9%</li><li>Company&#x27;s median sales growth is 16.4% of last 10 years</li>
           </ul>
         </div>
         <div class="cons" style="flex-basis: 50%;">
@@ -665,7 +702,7 @@ The company is India's one of 3 systemically important banks with a <strong>15% 
           </ul>
         </div>
       </div>
-      <p class="sub font-size-14 margin-top-16 margin-bottom-0">
+      <p class="sub font-size-0 margin-top-16 margin-bottom-0">
         <span style="vertical-align: sub;">*</span>
         <span class="font-weight-500">The pros and cons are machine generated.</span>
         <span class="has-tooltip">
@@ -2806,17 +2843,12 @@ The company is India's one of 3 systemically important banks with a <strong>15% 
   <div class="flex flex-gap-8"
        style="justify-content: flex-end;
               align-items: center">
-    
-
-    
-
-    
   </div>
 </div>
 
 
 
-<div class="responsive-holder fill-card-width" data-result-table>
+<div class="responsive-holder fill-card-width" style="height:250px" data-result-table>
   <table class="data-table responsive-text-nowrap">
     <thead>
       <tr>
@@ -3043,7 +3075,7 @@ The company is India's one of 3 systemically important banks with a <strong>15% 
 
     </section>
 
-    <section id="ratios" class="card card-large">
+    <section id="ratios" class="card card-large" style="height:200px">
       
 
 
@@ -4676,5 +4708,6 @@ The company is India's one of 3 systemically important banks with a <strong>15% 
 
     <!-- Service worker installer for PWA -->
     <script src="https://cdn-static.screener.in/js/pwa.933118758337.js"></script>
+    
   </body>
 </html>

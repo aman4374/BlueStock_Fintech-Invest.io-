@@ -8,6 +8,41 @@
 
   <title>Tata Consultancy Services Ltd share price | About TCS | Key Insights - Screener</title>
 
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+  google.charts.load('current', {'packages':['corechart']});
+  google.charts.setOnLoadCallback(drawChart);
+
+  function drawChart() {
+    var data = google.visualization.arrayToDataTable([
+      ['Quarter', 'Revenue', 'Expenses'],
+      ['Sep 2021', 46867, 33751],
+      ['Dec 2021', 48885, 35452],
+      ['Mar 2022', 50591, 36746],
+      ['Jun 2022', 52758, 39342],
+      ['Sep 2022', 55309, 40793],
+      ['Dec 2022', 58229, 42676],
+      ['Mar 2023', 59162, 43388],
+      ['Jun 2023', 59381, 44383],
+      ['Sep 2023', 59692, 43946],
+      ['Dec 2023', 60583, 44195],
+      ['Mar 2024', 61237, 44073],
+      ['Jun 2024', 62613, 45951],
+      ['Sep 2024', 64259, 47528],
+    ]);
+
+    var options = {
+      title: 'Company Performance',
+      curveType: 'function',
+      legend: { position: 'bottom' }
+    };
+
+    var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+    chart.draw(data, options);
+  }
+</script>
+
     <style>
       
     </style>
@@ -803,7 +838,7 @@ Regional Markets &amp; Others : 11%</p>
     
   </div>
 </div>
-
+<div id="curve_chart" style="width: 1200px; height: 600px"></div>
 <div class="flex no-select">
   <div class="hide-on-mobile chart-label">
     <div id="chart-label-left"></div>
@@ -831,7 +866,7 @@ Regional Markets &amp; Others : 11%</p>
 
     
     <section id="analysis" class="card card-large">
-      <div class="flex flex-column-mobile flex-gap-32">
+      <div class="flex flex-column-mobile flex-gap-32"  style="height: 505px; display: grid;">
         <div class="pros" style="flex-basis: 50%;">
           <p class="title">Pros</p>
           <ul>

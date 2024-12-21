@@ -7,6 +7,42 @@
 
     
     <title>Infosys Ltd share price | About Infosys | Key Insights - Screener</title>
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+  google.charts.load('current', {'packages':['corechart']});
+  google.charts.setOnLoadCallback(drawChart);
+
+  function drawChart() {
+    var data = google.visualization.arrayToDataTable([
+      ['Quarter', 'Revenue', 'Expenses'],
+      ['Sep 2021', 29602, 21771],
+      ['Dec 2021', 31867, 23484],
+      ['Mar 2022', 32276, 24430],
+      ['Jun 2022', 34470, 26606],
+      ['Sep 2022', 36538, 27636],
+      ['Dec 2022', 38318, 28951],
+      ['Mar 2023', 37441, 28443],
+      ['Jun 2023', 37933, 28869],
+      ['Sep 2023', 38994, 29554],
+      ['Dec 2023', 38821, 29684],
+      ['Mar 2024', 37923, 29139],
+      ['Jun 2024', 39315, 29878],
+      ['Sep 2024', 40986, 31177],
+    ]);
+
+    var options = {
+      title: 'Company Performance',
+      curveType: 'function',
+      legend: { position: 'bottom' }
+    };
+
+    var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+    chart.draw(data, options);
+  }
+</script>
+
     
 
     <!-- plausible -->
@@ -772,7 +808,7 @@ It comprises of services and solution offerings of the group that enables client
     
   </div>
 </div>
-
+<div id="curve_chart" style="width: 1200px; height: 600px"></div>
 <div class="flex no-select">
   <div class="hide-on-mobile chart-label">
     <div id="chart-label-left"></div>
@@ -800,7 +836,7 @@ It comprises of services and solution offerings of the group that enables client
 
     
     <section id="analysis" class="card card-large">
-      <div class="flex flex-column-mobile flex-gap-32">
+      <div class="flex flex-column-mobile flex-gap-32"  style="height: 425px; display: grid;">
         <div class="pros" style="flex-basis: 50%;">
           <p class="title">Pros</p>
           <ul>
