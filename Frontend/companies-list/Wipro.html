@@ -52,10 +52,10 @@
   </style>
 
 
-  <!-- plausible -->
+  <!-- plausible
   <script defer event-user="unregistered" data-domain="screener.in"
     src="https://plausible.screener.in/js/script.pageview-props.tagged-events.js"></script>
-  <script>window.plausible = window.plausible || function () { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
+  <script>window.plausible = window.plausible || function () { (window.plausible.q = window.plausible.q || []).push(arguments) }</script> -->
 
   <!-- FONT -->
   <link rel="stylesheet" href="https://cdn-static.screener.in/inter/inter.43d4904a3137.css" />
@@ -71,6 +71,36 @@
 
 
   <style>
+.nav-link {
+  text-decoration: none;
+  color: black;
+  padding: 10px;
+  position: relative;
+  transition: color 0.3s, border-color 0.3s;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -5px;
+  height: 3px;
+  background-color: transparent;
+  transition: background-color 0.3s;
+}
+
+/* Active class styles */
+.nav-link.active {
+  color: blue;
+}
+
+.nav-link.active::after {
+  background-color: blue;
+}
+
+
+
     tr[data-row-company-id="3763"] {
       font-weight: 500;
     }
@@ -108,17 +138,6 @@
   <meta name="theme-color" content="#fff" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#222530" media="(prefers-color-scheme: dark)">
   <link rel="manifest" href="/static/manifest.json">
-
-  <!-- favicons -->
-  <link rel="apple-touch-icon" sizes="180x180"
-    href="https://cdn-static.screener.in/favicon/apple-touch-icon.b6e5f24bf7d3.png">
-  <link rel="icon" type="image/png" sizes="32x32"
-    href="https://cdn-static.screener.in/favicon/favicon-32x32.00205914303a.png">
-  <link rel="icon" type="image/png" sizes="16x16"
-    href="https://cdn-static.screener.in/favicon/favicon-16x16.2b35594b2f33.png">
-  <link rel="mask-icon" href="https://cdn-static.screener.in/favicon/safari-pinned-tab.adbe3ed3c5ad.svg"
-    color="#8ED443">
-  <meta name="msapplication-TileColor" content="#da532c">
 </head>
 
 <body class="light flex-column">
@@ -142,10 +161,6 @@
           <div class="layer flex flex-space-between" style="align-items: center;
               height: 50px">
             <div class="flex" style="align-items: center">
-              <!-- <a href="/" class="logo-holder">
-                <img alt="Screener Logo" class="logo"
-                  src="https://cdn-static.screener.in/img/logo-black.f44abb4998d1.svg" />
-              </a> -->
               <div class="logo-invest">
                 <h2><a href="/" class="logo-holder" style="color:#6b50ff">Invest.io</a></h2>
                 </div>
@@ -262,20 +277,18 @@
 
     <div class="sub-nav-holder">
       <div class="sub-nav">
-        <a href="#top">
-          <span class="shrink-text show-from-tablet-landscape">Overview</span>
-          <span class="hide-from-tablet-landscape">Overview</span>
-        </a>
-        <a href="#chart">Chart</a>
-        <a href="#analysis">Analysis</a>
-        <a href="#peers">Peers</a>
-        <a href="#quarters">Quarters</a>
-        <a href="#profit-loss">Profit &amp; Loss</a>
-        <a href="#balance-sheet">Balance Sheet</a>
-        <a href="#cash-flow">Cash Flow</a>
-        <a href="#ratios">Ratios</a>
-        <a href="#shareholding">Investors</a>
-        <a href="#documents">Documents</a>
+        <a href="#top" class="nav-link">Overview</a>
+        <a href="#chart" class="nav-link">Chart</a>
+        <a href="#analysis" class="nav-link">Analysis</a>
+        <a href="#peers" class="nav-link">Peers</a>
+        <a href="#quarters" class="nav-link">Quarters</a>
+        <a href="#profit-loss" class="nav-link">Profit &amp; Loss</a>
+        <a href="#balance-sheet" class="nav-link">Balance Sheet</a>
+        <a href="#cash-flow" class="nav-link">Cash Flow</a>
+        <a href="#ratios" class="nav-link">Ratios</a>
+        <a href="#shareholding" class="nav-link">Investors</a>
+        <a href="#documents" class="nav-link">Documents</a>
+    
         <div class="flex-grow flex show-from-tablet-landscape">
           <div class="flex-grow"></div>
           <button type="button" class="a sub plausible-event-name=Notebook plausible-event-user=unregistered"
@@ -5090,7 +5103,51 @@
   <script src="https://cdn-static.Invest.io.in/js/chartjs-adapter-date-fns.bundle.min.ebae23730a6e.js"></script>
   <script src="https://cdn-static.Invest.io.in/js/chart.e20c5f42613a.js"></script>
   <script src="https://cdn-static.Invest.io.in/js/segment-result.b6af4191fd6f.js"></script>
+  <script>  
+    const sections = document.querySelectorAll('section');
+const navLinks = document.querySelectorAll('.nav-link');
 
+function updateActiveLink() {
+  let currentSection = '';
+
+  // Determine the currently active section
+  sections.forEach((section) => {
+    const sectionTop = section.offsetTop;
+    const sectionHeight = section.offsetHeight;
+
+    if (pageYOffset >= sectionTop - 50 && pageYOffset < sectionTop + sectionHeight - 50) {
+      currentSection = section.getAttribute('id');
+    }
+  });
+
+  // Update the active class for nav links
+  navLinks.forEach((link) => {
+    if (link.getAttribute('href').substring(1) === currentSection) {
+      link.classList.add('active');
+    } else {
+      link.classList.remove('active');
+    }
+  });
+}
+
+// Attach scroll event listener
+window.addEventListener('scroll', updateActiveLink);
+
+// Smooth scrolling for navigation links
+navLinks.forEach((link) => {
+  link.addEventListener('click', (e) => {
+    e.preventDefault();
+    const targetId = link.getAttribute('href').substring(1);
+    const targetElement = document.getElementById(targetId);
+
+    window.scrollTo({
+      top: targetElement.offsetTop,
+      behavior: 'smooth',
+    });
+  });
+});
+
+  </script>
   <script src="https://cdn-static.invest.io.in/js/pwa.933118758337.js"></script>
 </body>
 
