@@ -197,9 +197,8 @@
           <span class="shrink-text show-from-tablet-landscape">Overview</span>
           <span class="hide-from-tablet-landscape">Overview</span>
         </a>
-        <a href="#chart">Chart</a>
+        
         <a href="#analysis">Analysis</a>
-        <a href="#peers">Peers</a>
         <a href="#quarters">Quarters</a>
         <a href="#profit-loss">Profit &amp; Loss</a>
         <a href="#balance-sheet">Balance Sheet</a>
@@ -534,33 +533,7 @@ The company is India's one of 3 systemically important banks with a <strong>15% 
   </div>
 
   
-    <section id="chart" class="card card-large" style="margin-bottom: 2.5rem">
-      <div class="top-bar">
-        <div class="filters">
-            <button data-range="1m" class="active">1m</button>
-            <button data-range="6m">6m</button>
-            <button data-range="1y">1Yr</button>
-            <button data-range="3y">3Yr</button>
-            <button data-range="5y">5Yr</button>
-            <button data-range="10y">10Yr</button>
-            <button data-range="max">Max</button>
-        </div>
-        <div class="right-buttons">
-            <button data-metric="Price" class="active">Price</button>
-            <button data-metric="PE Ratio">PE Ratio</button>
-            <button>More <span>&#x25BC;</span></button>
-        </div>
-    </div>
-    <div class="chart-container">
-        <canvas id="stockChart"></canvas>
-    </div>
-    <div class="checkboxes">
-        <label><input type="checkbox" id="price" checked> Price on NSE</label>
-        <label><input type="checkbox" id="dma50" checked> 50 DMA</label>
-        <label><input type="checkbox" id="dma200" checked> 200 DMA</label>
-        <label><input type="checkbox" id="volume" checked> Volume</label>
-    </div>
-    </section>
+    
 
     
     <section id="analysis" class="card card-large">
@@ -593,194 +566,15 @@ The company is India's one of 3 systemically important banks with a <strong>15% 
       </p>
     </section>
 
-    <section id="peers" class="card card-large">
-      <div class="flex flex-space-between" style="align-items: center;">
-        <div>
-          <h2>Peer comparison</h2>
-
-          
-            <p class="sub">
-              Sector:
-              <a href="/company/compare/00000006/"
-                 target="_blank">Banks</a>
-              <span style="margin: 16px"></span>
-              Industry:
-              <a href="/company/compare/00000006/00000012/"
-                 target="_blank">Banks - Private Sector</a>
-            </p>
+    
           
 
           
-            <p class="flex flex-wrap gap-8 flex-align-center line-height-1 sub"
-               id="benchmarks">
-              Part of
-              
-                <a href="/company/1001/"
-                   class="tag plausible-event-name=Click+Benchmark plausible-event-benchmark=BSE+Sensex"
-                   target="_blank">BSE Sensex</a>
-              
-                <a href="/company/NIFTY/"
-                   class="tag plausible-event-name=Click+Benchmark plausible-event-benchmark=Nifty+50"
-                   target="_blank">Nifty 50</a>
-              
-                <a href="/company/1005/"
-                   class="tag plausible-event-name=Click+Benchmark plausible-event-benchmark=BSE+500"
-                   target="_blank">BSE 500</a>
-              
-                <a href="/company/1002/"
-                   class="tag plausible-event-name=Click+Benchmark plausible-event-benchmark=BSE+100"
-                   target="_blank">BSE 100</a>
-              
-                <a href="/company/1003/"
-                   class="tag plausible-event-name=Click+Benchmark plausible-event-benchmark=BSE+200"
-                   target="_blank">BSE 200</a>
-              
-                <a href="/company/1004/"
-                   class="tag hidden plausible-event-name=Click+Benchmark plausible-event-benchmark=BSE+Dollex+200"
-                   target="_blank">BSE Dollex 200</a>
-              
-                <a href="/company/CNX500/"
-                   class="tag hidden plausible-event-name=Click+Benchmark plausible-event-benchmark=Nifty+500"
-                   target="_blank">Nifty 500</a>
-              
-                <a href="/company/1015/"
-                   class="tag hidden plausible-event-name=Click+Benchmark plausible-event-benchmark=BSE+BANKEX"
-                   target="_blank">BSE BANKEX</a>
-              
-                <a href="/company/BANKNIFTY/"
-                   class="tag hidden plausible-event-name=Click+Benchmark plausible-event-benchmark=Nifty+Bank"
-                   target="_blank">Nifty Bank</a>
-              
-                <a href="/company/CNX100/"
-                   class="tag hidden plausible-event-name=Click+Benchmark plausible-event-benchmark=Nifty+100"
-                   target="_blank">Nifty 100</a>
-              
-                <a href="/company/CNXSERVICE/"
-                   class="tag hidden plausible-event-name=Click+Benchmark plausible-event-benchmark=Nifty+Services+Sector"
-                   target="_blank">Nifty Services Sector</a>
-              
-                <a href="/company/CNX200INDE/"
-                   class="tag hidden plausible-event-name=Click+Benchmark plausible-event-benchmark=Nifty+200"
-                   target="_blank">Nifty 200</a>
-              
-                <a href="/company/CNXFINANCE/"
-                   class="tag hidden plausible-event-name=Click+Benchmark plausible-event-benchmark=Nifty+Financial+Services"
-                   target="_blank">Nifty Financial Services</a>
-              
-                <a href="/company/NFT100EQWT/"
-                   class="tag hidden plausible-event-name=Click+Benchmark plausible-event-benchmark=Nifty+100+Equal+Weight"
-                   target="_blank">Nifty 100 Equal Weight</a>
-              
-                <a href="/company/1153/"
-                   class="tag hidden plausible-event-name=Click+Benchmark plausible-event-benchmark=BSE+Allcap"
-                   target="_blank">BSE Allcap</a>
-              
-                <a href="/company/1155/"
-                   class="tag hidden plausible-event-name=Click+Benchmark plausible-event-benchmark=BSE+LargeCap"
-                   target="_blank">BSE LargeCap</a>
-              
-                <a href="/company/1162/"
-                   class="tag hidden plausible-event-name=Click+Benchmark plausible-event-benchmark=BSE+Financial+Services"
-                   target="_blank">BSE Financial Services</a>
-              
-                <a href="/company/1125/"
-                   class="tag hidden plausible-event-name=Click+Benchmark plausible-event-benchmark=BSE+SENSEX+50"
-                   target="_blank">BSE SENSEX 50</a>
-              
-                <a href="/company/NIFTYQLY30/"
-                   class="tag hidden plausible-event-name=Click+Benchmark plausible-event-benchmark=Nifty100+Quality+30"
-                   target="_blank">Nifty100 Quality 30</a>
-              
-                <a href="/company/NIFPVTBANK/"
-                   class="tag hidden plausible-event-name=Click+Benchmark plausible-event-benchmark=Nifty+Private+Bank"
-                   target="_blank">Nifty Private Bank</a>
-              
-                <a href="/company/1017/"
-                   class="tag hidden plausible-event-name=Click+Benchmark plausible-event-benchmark=BSE+100+ESG+Index+(INR)"
-                   target="_blank">BSE 100 ESG Index (INR)</a>
-              
-                <a href="/company/1181/"
-                   class="tag hidden plausible-event-name=Click+Benchmark plausible-event-benchmark=BSE+250+LargeMidCap+Index"
-                   target="_blank">BSE 250 LargeMidCap Index</a>
-              
-                <a href="/company/1188/"
-                   class="tag hidden plausible-event-name=Click+Benchmark plausible-event-benchmark=BSE+Diversified+Financials+Revenue+Growth+Index+(I"
-                   target="_blank">BSE Diversified Financials Revenue Growth Index (I</a>
-              
-                <a href="/company/1018/"
-                   class="tag hidden plausible-event-name=Click+Benchmark plausible-event-benchmark=BSE+Private+Banks+Index"
-                   target="_blank">BSE Private Banks Index</a>
-              
-                <a href="/company/1183/"
-                   class="tag hidden plausible-event-name=Click+Benchmark plausible-event-benchmark=BSE+Dividend+Stability+Index"
-                   target="_blank">BSE Dividend Stability Index</a>
-              
-                <a href="/company/1185/"
-                   class="tag hidden plausible-event-name=Click+Benchmark plausible-event-benchmark=BSE+Low+Volatility+Index"
-                   target="_blank">BSE Low Volatility Index</a>
-              
-                <a href="/company/NFT50EQWT/"
-                   class="tag hidden plausible-event-name=Click+Benchmark plausible-event-benchmark=Nifty+50+Equal+Weight"
-                   target="_blank">Nifty 50 Equal Weight</a>
-              
-                <a href="/company/NFT100LV30/"
-                   class="tag hidden plausible-event-name=Click+Benchmark plausible-event-benchmark=Nifty+100+Low+Volatility+30"
-                   target="_blank">Nifty 100 Low Volatility 30</a>
-              
-                <a href="/company/1130/"
-                   class="tag hidden plausible-event-name=Click+Benchmark plausible-event-benchmark=BSE+100+LargeCap+TMC+Index"
-                   target="_blank">BSE 100 LargeCap TMC Index</a>
-              
-                <a href="/company/LMIDCAP250/"
-                   class="tag hidden plausible-event-name=Click+Benchmark plausible-event-benchmark=Nifty+LargeMidcap+250"
-                   target="_blank">Nifty LargeMidcap 250</a>
-              
-                <a href="/company/NFT500MULT/"
-                   class="tag hidden plausible-event-name=Click+Benchmark plausible-event-benchmark=Nifty+500+Multicap+50:25:25"
-                   target="_blank">Nifty 500 Multicap 50:25:25</a>
-              
-                <a href="/company/NFINSERV25/"
-                   class="tag hidden plausible-event-name=Click+Benchmark plausible-event-benchmark=Nifty+Financial+Services+25/50"
-                   target="_blank">Nifty Financial Services 25/50</a>
-              
-                <a href="/company/NIFT100ESG/"
-                   class="tag hidden plausible-event-name=Click+Benchmark plausible-event-benchmark=Nifty100+ESG"
-                   target="_blank">Nifty100 ESG</a>
-              
-                <a href="/company/NFTYTOTMKT/"
-                   class="tag hidden plausible-event-name=Click+Benchmark plausible-event-benchmark=Nifty+Total+Market"
-                   target="_blank">Nifty Total Market</a>
-              
-              
-                <button type="button"
-                        class="a small font-weight-500 plausible-event-name=Show+More+Benchmarks"
-                        onclick="Utils.toggleClass('#benchmarks', 'show-hidden')">show all</button>
-              
-            </p>
-          
-        </div>
+            
 
-        <div class="flex-reverse">
-          <a href="/user/columns/?next=/company/HDFCBANK/consolidated/#peers"
-             class="button button-small button-secondary">
-            <i class="icon-cog"></i>
-            <span class="hide-on-mobile">Edit</span>
-            Columns
-          </a>
-        </div>
-      </div>
+       
 
-      <div id="peers-table-placeholder">Loading peers table ...</div>
-
-      <div class="flex-row flex-baseline">
-        <label for="search-peer-comparison" style="padding-right: 1rem">Detailed Comparison with:</label>
-        <div class="dropdown-typeahead">
-          <input type="text"
-                 id="search-peer-comparison"
-                 placeholder="eg. Infosys"
-                 class="small">
-        </div>
-      </div>
+      
     </section>
 
     <section id="quarters" class="card card-large">
