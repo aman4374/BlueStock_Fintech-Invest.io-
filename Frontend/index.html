@@ -6,10 +6,99 @@
     <title>Invest.io</title>
     <link rel="stylesheet" href="style.css" />
     <style>
-        
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        .search-container {
+            position: relative;
+            max-width: 400px;
+            margin: 50px auto;
+        }
+
+        .search-box {
+            position: relative;
+            display: flex;
+            align-items: center;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background-color: #fff;
+            padding: 8px 12px;
+        }
+
+        .search-box input {
+            border: none;
+            outline: none;
+            flex: 1;
+            padding: 8px;
+            font-size: 16px;
+        }
+
+        .search-box img {
+            width: 20px;
+            height: 20px;
+            margin-right: 8px;
+        }
+
+        .dropdown {
+            position: absolute;
+            top: 100%; /* Position right below the search box */
+            left: 0;
+            width: 100%;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background-color: white;
+            max-height: 300px;
+            overflow-y: auto;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-top: 5px; /* Add space below the search box */
+            display: none; /* Initially hidden */
+        }
+
+        .dropdown-item {
+            padding: 12px 16px;
+            cursor: pointer;
+            font-size: 16px;
+            color: #333;
+        }
+
+        .dropdown-item a {
+            text-decoration: none;
+            color: #333;
+            display: block;
+        }
+
+        .dropdown-item:hover {
+            background-color: #f0f8ff; /* Light blue highlight on hover */
+        }
+
+        .image-container {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .image {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .title {
+            text-align: center;
+            font-size: 24px;
+            margin-top: 20px;
+            color: #333;
+        }
+
+        .highlight {
+            /* color: #007BFF; */
+            font-weight: bold;
+        }
     </style>
 </head>
-
 <body>
     <div class="image-container">
         <img class="image" src="public/Stock market.svg" alt="image">
@@ -20,45 +109,63 @@
     <div class="search-container">
         <div class="search-box">
             <img class="icon" src="public/Magnifying glass.svg" alt="icon">
-            <input type="text" id="searchBox" placeholder="Search for a company" onkeypress="handleEnter(event)">
-            <!-- <button onclick="searchCompany()">Search</button> -->
+            <input 
+                type="text" 
+                id="searchBox" 
+                placeholder="Search for a company" 
+                onkeyup="filterCompanies()" 
+                onclick="showAllCompanies()"
+            >
+            <div id="dropdown" class="dropdown"></div>
         </div>
     </div>
-    <div class="company-list">
-        <div class="list"><a href="./companies-list/TCS.html">TCS</a></div>
-        <div class="list"><a href="./companies-list/Infosys.html">Infosys</a></div>
-        <div class="list"><a href="./companies-list/Hdfc.html">HDFC Bank</a></div>
-        <div class="list"><a href="./companies-list/Wipro.html">Wipro</a></div>
-        <div class="list"><a href="./companies-list/Sbi.html">SBILife Insurance</a></div>
-    </div>
-
+    
     <!-- JavaScript -->
     <script>
-        const routes = {
-            "TCS": "./companies-list/TCS.html",
-            "Infosys": "./companies-list/Infosys.html",
-            "HDFC": "./companies-list/Hdfc.html",
-            "Wipro": "./companies-list/Wipro.html",
-            "SBI": "./companies-list/Sbi.html"
-        };
-        function handleEnter(event) {
-            if (event.key === "Enter") {
-                searchCompany();
-            }
-        }
-        function searchCompany() {
-            const input = document.getElementById('searchBox').value.trim().toLowerCase();
-            const normalizedRoutes = Object.keys(routes).reduce((acc, key) => {
-                acc[key.toLowerCase()] = routes[key];
-                return acc;
-            }, {});
+        const companies = [
+            { name: "TCS", link: "./companies-list/TCS.html" },
+            { name: "Infosys", link: "./companies-list/Infosys.html" },
+            { name: "HDFC Bank", link: "./companies-list/Hdfc.html" },
+            { name: "Wipro", link: "./companies-list/Wipro.html" },
+            { name: "SBILife Insurance", link: "./companies-list/Sbi.html" },
+        ];
 
-            if (normalizedRoutes[input]) {
-                window.location.href = normalizedRoutes[input];
-            } else {
-                alert("Company not found! Try TCS, Infosys, HDFC, Wipro, or SBI.");
-            }
+        function populateDropdown(filteredCompanies) {
+            const dropdown = document.getElementById("dropdown");
+            dropdown.innerHTML = ""; // Clear existing options
+
+            filteredCompanies.forEach(company => {
+                const item = document.createElement("div");
+                item.classList.add("dropdown-item");
+                item.innerHTML = `<a href="${company.link}">${company.name}</a>`;
+                dropdown.appendChild(item);
+            });
+
+            dropdown.style.display = filteredCompanies.length ? "block" : "none";
         }
+
+        function filterCompanies() {
+            const searchInput = document.getElementById("searchBox").value.toLowerCase();
+            const filtered = companies.filter(company =>
+                company.name.toLowerCase().includes(searchInput)
+            );
+            populateDropdown(filtered);
+        }
+
+        function showAllCompanies() {
+            populateDropdown(companies); // Show all companies when the search box is clicked
+            const dropdown = document.getElementById("dropdown");
+            dropdown.style.display = "block";
+        }
+
+        // Close dropdown if clicked outside
+        document.addEventListener("click", (event) => {
+            const dropdown = document.getElementById("dropdown");
+            const searchBox = document.getElementById("searchBox");
+            if (!searchBox.contains(event.target) && !dropdown.contains(event.target)) {
+                dropdown.style.display = "none";
+            }
+        });
     </script>
 </body>
 </html>
