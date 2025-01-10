@@ -45,7 +45,7 @@
 
         .dropdown {
             position: absolute;
-            top: 100%; /* Position right below the search box */
+            top: 100%;
             left: 0;
             width: 100%;
             border: 1px solid #ccc;
@@ -55,8 +55,8 @@
             overflow-y: auto;
             z-index: 1000;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            margin-top: 5px; /* Add space below the search box */
-            display: none; /* Initially hidden */
+            margin-top: 5px;
+            display: none;
         }
 
         .dropdown-item {
@@ -73,7 +73,7 @@
         }
 
         .dropdown-item:hover {
-            background-color: #f0f8ff; /* Light blue highlight on hover */
+            background-color: #f0f8ff;
         }
 
         .image-container {
@@ -82,8 +82,9 @@
         }
 
         .image {
-            max-width: 100%;
-            height: auto;
+            max-width: 450px; /* Adjust the max-width to make the image smaller */
+            height: auto; /* Maintain aspect ratio */
+            margin: 0 auto; /* Center the image */
         }
 
         .title {
@@ -94,7 +95,6 @@
         }
 
         .highlight {
-            /* color: #007BFF; */
             font-weight: bold;
         }
     </style>
