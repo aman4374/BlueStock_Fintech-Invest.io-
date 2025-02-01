@@ -1,0 +1,10 @@
+<Files "config.php">
+    Order Allow,Deny
+    Deny from all
+</Files>
+<Files "config2.php">
+    Order Allow,Deny
+    Deny from all
+</Files>
+
+
